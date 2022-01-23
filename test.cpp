@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    int guess = 7.2E12;
-    cout << "guess = " << guess << endl;
+    char ch = 88;
+    cout << ch << int(ch);
 
     return 0;
 }
