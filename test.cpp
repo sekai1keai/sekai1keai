@@ -1,12 +1,11 @@
 #include <iostream>
-#include <climits>
+
 using namespace std;
 
 int main()
 {
-
-
-    cout << "变态";
+    int guess = 7.2E12;
+    cout << "guess = " << guess << endl;
 
     return 0;
 }
