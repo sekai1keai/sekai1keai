@@ -1,13 +1,5 @@
-a = 1
-
-def move():
-    global a
-    a += 1
-
-
 if __name__ == '__main__':
-    print(a)
-    a += 1
-    print(a)
-    move()
+    a = b = c = []
+    c.append([5,10,20,50])
+    b.append([100,200,500,1440])
     print(a)

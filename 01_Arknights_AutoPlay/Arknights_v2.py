@@ -9,12 +9,12 @@ class Arknights:
     def __init__(self, loop):
         self.loop = loop
         self.count = 0
-        self.img = ['D:/HUAWEI/Python/pic/start.png',
-            'D:/HUAWEI/Python/pic/go.png',
-            'D:/HUAWEI/Python/pic/game.png',
-            'D:/HUAWEI/Python/pic/rec.png',
-            'D:/HUAWEI/Python/pic/end.png',
-            'D:/HUAWEI/Python/pic/auto.png']
+        self.img = ['D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/start.png',
+            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/go.png',
+            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/game.png',
+            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/rec.png',
+            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/end.png',
+            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/auto.png']
 
     # 状态0：关卡选择界面
     def stateStart(self):
