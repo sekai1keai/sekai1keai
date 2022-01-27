@@ -4,6 +4,7 @@ import pyautogui
 import time
 # 动作之后延迟0.5秒
 pyautogui.PAUSE = 0.75
+conf = 0.75
 
 class Arknights:
     def __init__(self, loop):
@@ -18,11 +19,11 @@ class Arknights:
 
     # 状态0：关卡选择界面
     def stateStart(self):
-        location=pyautogui.locateCenterOnScreen(self.img[0], confidence=0.85)
+        location=pyautogui.locateCenterOnScreen(self.img[0], confidence=conf)
         if location is None:
             return 5
         # 如果代理指挥关闭，则开启
-        auto=pyautogui.locateCenterOnScreen(self.img[5], confidence=0.85)
+        auto=pyautogui.locateCenterOnScreen(self.img[5], confidence=conf)
         if auto is not None:
             pyautogui.click(auto.x, auto.y, duration=0.2)
         pyautogui.click(location.x, location.y, duration=0.2)
@@ -32,7 +33,7 @@ class Arknights:
 
     # 状态1：阵容选择界面
     def stateGo(self):
-        location=pyautogui.locateCenterOnScreen(self.img[1], confidence=0.85)
+        location=pyautogui.locateCenterOnScreen(self.img[1], confidence=conf)
         if location is None:
             return 5
         pyautogui.click(location.x, location.y, duration=0.2)
@@ -43,13 +44,13 @@ class Arknights:
     # 状态2：关卡中等待
     def stateGame(self):
         while True:
-            location1=pyautogui.locateCenterOnScreen(self.img[2], confidence=0.85)
+            location1=pyautogui.locateCenterOnScreen(self.img[2], confidence=conf)
             time.sleep(2)
-            location2=pyautogui.locateCenterOnScreen(self.img[2], confidence=0.85)
+            location2=pyautogui.locateCenterOnScreen(self.img[2], confidence=conf)
             if location1 is None and location2 is None:
-                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.85) is not None:
+                if pyautogui.locateCenterOnScreen(self.img[3], confidence=conf) is not None:
                     return 3
-                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.85) is not None:
+                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=conf) is not None:
                     return 4
                 else:
                     return 5
@@ -58,7 +59,7 @@ class Arknights:
 
     # 状态3：保存自动作战
     def stateRec(self):
-        location=pyautogui.locateCenterOnScreen(self.img[3], confidence=0.85)
+        location=pyautogui.locateCenterOnScreen(self.img[3], confidence=conf)
         if location is None:
             return 5
         pyautogui.click(location.x, location.y, duration=0.2)
@@ -68,7 +69,7 @@ class Arknights:
 
     # 状态4：作战结束界面
     def stateEnd(self):
-        location=pyautogui.locateCenterOnScreen(self.img[4],confidence=0.85)
+        location=pyautogui.locateCenterOnScreen(self.img[4],confidence=conf)
         if location is None:
             return 5
         pyautogui.click(location.x,location.y,duration=0.2)
@@ -81,7 +82,7 @@ class Arknights:
     def stateFind(self):
         num = 0
         for target in self.img:
-            location=pyautogui.locateCenterOnScreen(target, confidence=0.85)
+            location=pyautogui.locateCenterOnScreen(target, confidence=conf)
             if location is not None:
                 print('  ** we are in state ', num)
                 return num
