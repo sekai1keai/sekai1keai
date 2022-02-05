@@ -8,3 +8,9 @@
 sekai1keai/sekai1keai is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
+
+ssh-keygen -t rsa
+git remote -v
+git config --global https.sslVerify "false"
+git pull Tang trunk
