@@ -8,3 +8,6 @@ You can click the Preview link to take a look at your changes.
 --->
 
 - 正在学习markdown语法
+
+- git config http.postBuffer 524288000
+- git config http.sslVerify "false"

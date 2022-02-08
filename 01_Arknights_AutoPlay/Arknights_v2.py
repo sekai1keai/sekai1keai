@@ -11,7 +11,7 @@ pyautogui.PAUSE = 0.5
 
 def clickLocate(target):
     here = pyautogui.position()
-    location = pyautogui.locateCenterOnScreen(target, confidence=0.8)
+    location = pyautogui.locateCenterOnScreen(target, confidence=0.6)
     if location is None:
         return 0
     pyautogui.click(location.x, location.y)
@@ -41,7 +41,7 @@ class Arknights:
 
     # 状态1：阵容选择界面
     def stateGo(self):
-        if clickLocate(self.img[0]):
+        if clickLocate(self.img[1]):
             print('     --- Go ---')
             time.sleep(120)
             return 2
@@ -51,10 +51,10 @@ class Arknights:
     # 状态2：关卡中等待
     def stateGame(self):
         while True:
-            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=0.8):
-                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.8):
+            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=0.6):
+                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.6):
                     return 3
-                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.8):
+                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.6):
                     return 4
                 else:
                     return 5
@@ -72,7 +72,7 @@ class Arknights:
 
     # 状态4：作战结束界面
     def stateEnd(self):
-        if clickLocate(self.img[3]):
+        if clickLocate(self.img[4]):
             print('     ---End---')
             self.count += 1
             time.sleep(2)
@@ -82,12 +82,10 @@ class Arknights:
 
     # 状态5：寻找当前状态
     def stateFind(self):
-        num = 0
-        for target in self.img:
-            if pyautogui.locateCenterOnScreen(target, confidence=0.8):
+        for num in range(5):
+            if pyautogui.locateCenterOnScreen(self.img[num], confidence=0.6):
                 print('  we are in state ', num)
                 return num
-            num += 1
         # 未找到目标，可能是窗口被覆盖，弹窗询问操作
         mission = pyautogui.confirm(text='未找到目标，行动暂停\n请确认窗口分辨率\n(1000*562, DPI 187)',
                                     title='Arknight Autogui', buttons=['Continue', 'Cancel'])
