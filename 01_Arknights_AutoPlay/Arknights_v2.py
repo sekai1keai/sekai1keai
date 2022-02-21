@@ -1,5 +1,6 @@
 # 基于有限状态自动机的明日方舟自动化脚本
 # v2.1
+# 窗口分辨率=1000*562, DPI=187
 # 2022.2.8
 # tys
 
@@ -15,7 +16,7 @@ def clickLocate(target):
     if location is None:
         return 0
     pyautogui.click(location.x, location.y)
-    pyautogui.click(here.x, here.y) # 鼠标回原位
+    pyautogui.moveTo(here.x, here.y) # 鼠标回原位
     return 1
 
 class Arknights:
@@ -87,8 +88,7 @@ class Arknights:
                 print('  we are in state ', num)
                 return num
         # 未找到目标，可能是窗口被覆盖，弹窗询问操作
-        mission = pyautogui.confirm(text='未找到目标，行动暂停\n请确认窗口分辨率\n(1000*562, DPI 187)',
-                                    title='Arknight Autogui', buttons=['Continue', 'Cancel'])
+        mission = pyautogui.confirm(text='未找到目标',buttons=['Continue', 'Cancel'])
         if mission == 'Cancel':
             return -1
         else:
