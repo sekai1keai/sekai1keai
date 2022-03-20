@@ -12,7 +12,7 @@ pyautogui.PAUSE = 0.5
 
 def clickLocate(target):
     here = pyautogui.position()
-    location = pyautogui.locateCenterOnScreen(target, confidence=0.6)
+    location = pyautogui.locateCenterOnScreen(target, confidence=0.7)
     if location is None:
         return 0
     pyautogui.click(location.x, location.y)
@@ -52,10 +52,10 @@ class Arknights:
     # 状态2：关卡中等待
     def stateGame(self):
         while True:
-            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=0.6):
-                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.6):
+            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=0.7):
+                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.7):
                     return 3
-                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.6):
+                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.7):
                     return 4
                 else:
                     return 5
@@ -84,7 +84,7 @@ class Arknights:
     # 状态5：寻找当前状态
     def stateFind(self):
         for num in range(5):
-            if pyautogui.locateCenterOnScreen(self.img[num], confidence=0.6):
+            if pyautogui.locateCenterOnScreen(self.img[num], confidence=0.7):
                 print('  we are in state ', num)
                 return num
         # 未找到目标，可能是窗口被覆盖，弹窗询问操作
