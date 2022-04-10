@@ -9,10 +9,11 @@ import time
 
 # 动作之后延迟0.5秒
 pyautogui.PAUSE = 0.5
+confid = 0.5
 
 def clickLocate(target):
     here = pyautogui.position()
-    location = pyautogui.locateCenterOnScreen(target, confidence=0.7)
+    location = pyautogui.locateCenterOnScreen(target, confidence=confid)
     if location is None:
         return 0
     pyautogui.click(location.x, location.y)
@@ -23,12 +24,12 @@ class Arknights:
     def __init__(self, loop):
         self.loop = loop
         self.count = 0
-        self.img = ['D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/start.png',
-            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/go.png',
-            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/game.png',
-            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/rec.png',
-            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/end.png',
-            'D:/03_HUAWEI/Code/01_Arknights_AutoPlay/pic/auto.png']
+        self.img = ['./01_Arknights_AutoPlay/pic/start.png',
+            './01_Arknights_AutoPlay/pic/go.png',
+            './01_Arknights_AutoPlay/pic/game.png',
+            './01_Arknights_AutoPlay/pic/rec.png',
+            './01_Arknights_AutoPlay/pic/end.png',
+            './01_Arknights_AutoPlay/pic/auto.png']
 
     # 状态0：关卡选择界面
     def stateStart(self):
@@ -52,10 +53,10 @@ class Arknights:
     # 状态2：关卡中等待
     def stateGame(self):
         while True:
-            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=0.7):
-                if pyautogui.locateCenterOnScreen(self.img[3], confidence=0.7):
+            if not pyautogui.locateCenterOnScreen(self.img[2], confidence=confid):
+                if pyautogui.locateCenterOnScreen(self.img[3], confidence=confid):
                     return 3
-                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=0.7):
+                elif pyautogui.locateCenterOnScreen(self.img[4], confidence=confid):
                     return 4
                 else:
                     return 5
@@ -84,7 +85,7 @@ class Arknights:
     # 状态5：寻找当前状态
     def stateFind(self):
         for num in range(5):
-            if pyautogui.locateCenterOnScreen(self.img[num], confidence=0.7):
+            if pyautogui.locateCenterOnScreen(self.img[num], confidence=confid):
                 print('  we are in state ', num)
                 return num
         # 未找到目标，可能是窗口被覆盖，弹窗询问操作
