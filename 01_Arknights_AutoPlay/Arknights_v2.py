@@ -8,8 +8,8 @@ import pyautogui
 import time
 
 # 动作之后延迟0.5秒
-pyautogui.PAUSE = 0.5
-confid = 0.5
+pyautogui.PAUSE = 0.75
+confid = 0.6
 
 def clickLocate(target):
     here = pyautogui.position()

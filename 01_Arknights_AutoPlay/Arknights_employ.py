@@ -38,14 +38,39 @@ while True:
         pyautogui.locateCenterOnScreen(
             './01_Arknights_AutoPlay/pic2/down.png',confidence=confid))
 
+
     if pyautogui.locateCenterOnScreen(
         './01_Arknights_AutoPlay/pic2/ksfh.png',confidence=confid):
-        print("ksfh")
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/ksfh.png',confidence=confid))
 
     if pyautogui.locateCenterOnScreen(
         './01_Arknights_AutoPlay/pic2/tzgy.png',confidence=confid):
-        print("tzgy")
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/tzgy.png',confidence=confid))
+
+    if pyautogui.locateCenterOnScreen(
+        './01_Arknights_AutoPlay/pic2/xr.png',confidence=confid):
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/xr.png',confidence=confid))
 
     if pyautogui.locateCenterOnScreen(
         './01_Arknights_AutoPlay/pic2/wy.png',confidence=confid):
-        print("wy")
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/wy.png',confidence=confid))
+
+    if pyautogui.locateCenterOnScreen(
+        './01_Arknights_AutoPlay/pic2/bf.png',confidence=confid):
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/bf.png',confidence=confid))
+
+    if pyautogui.locateCenterOnScreen(
+        './01_Arknights_AutoPlay/pic2/zh.png',confidence=confid):
+        pyautogui.click(
+            pyautogui.locateCenterOnScreen(
+                './01_Arknights_AutoPlay/pic2/zh.png',confidence=confid))
